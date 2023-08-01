@@ -18,13 +18,23 @@ while True:
     opcao = input(menu)
 
     if opcao == "d":
-        print("Depósito")
+        while True: 
+            deposito = input("Quanto você quer depositar?\n=> ")
+            if float(deposito) > 0:
+                saldo += float(deposito)
+                extrato += """
+                Depósito = +R${deposito:.2f}
+                """
+                print("Depósito bem-sucedido!")
+                break
+            else:
+                print("Valor inválido, por favor tente novamente!")
 
     elif opcao == "s":
         print("Saque")
 
     elif opcao == "e":
-        print("Extrato")
+        print(extrato)
 
     elif opcao == "q":
         break
