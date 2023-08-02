@@ -20,11 +20,10 @@ while True:
     if opcao == "d":
         while True: 
             deposito = input("Quanto você quer depositar?\n=> ")
-            if float(deposito) > 0:
-                saldo += float(deposito)
-                extrato += """
-                Depósito = +R${deposito:.2f}
-                """
+            deposito_float = float(deposito)
+            if deposito_float > 0:
+                saldo += deposito_float
+                extrato += f"Depósito = +R${deposito_float:.2f}\n"
                 print("Depósito bem-sucedido!")
                 break
             else:
