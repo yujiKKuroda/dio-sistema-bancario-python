@@ -30,7 +30,26 @@ while True:
                 print("Valor inválido, por favor tente novamente!")
 
     elif opcao == "s":
-        print("Saque")
+        while True:
+            if numero_saques <= LIMITE_SAQUES:
+                saque = input("Quanto você quer sacar?\n=> ")
+                saque_float = float(saque)
+
+                if saque_float > limite:
+                    print("Valor muito alto, máximo de R$500.00 por transação! Por favor tente novamente!")
+                elif saque_float > 0:
+                    if (saque_float <= saldo):
+                        saldo -= saque_float
+                        extrato += f"Saque = +R${saque_float:.2f}\n"
+                        print("Saque bem-sucedido!")
+                        break
+                    else:
+                        print("Saldo insuficiente, tente novamente!")
+                else:
+                    print("Valor inválido, por favor tente novamente!")
+            else:
+                print("Você alcançou o máximo de saques hoje, não tente novamente!")
+                break
 
     elif opcao == "e":
         print(extrato)
