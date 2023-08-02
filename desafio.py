@@ -1,5 +1,4 @@
 menu = """
-
 [d] Depositar
 [s] Sacar
 [e] Extrato
@@ -41,7 +40,7 @@ while True:
                         if saque_float <= saldo:
                             numero_saques += 1
                             saldo -= saque_float
-                            extrato += f"Saque = -R${saque_float:.2f}\n"
+                            extrato += f"Saque    = -R${saque_float:.2f}\n"
                             print("Saque bem-sucedido!")
                             break
                         else:
@@ -55,7 +54,11 @@ while True:
                 break
 
     elif opcao == "e":
-        print(extrato)
+        if extrato != "":
+            print(extrato)
+            print(f"Saldo atual: R${saldo:.2f}")
+        else:
+            print("Nâo foram realizadas movimentações.")
 
     elif opcao == "q":
         break
